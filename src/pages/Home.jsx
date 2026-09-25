@@ -1,10 +1,19 @@
+import React from 'react';
+
 function Home() {
   return (
-    <div>
-      <h1>Xin chào 👋</h1>
-      <p>Đây là trang Home mẫu — sửa lại trong src/pages/Home.jsx</p>
+    <div className="page home-page">
+      <div className="home-left">
+        <h1 className="main-title">IUers' Pacman</h1>
+        <p className="sub-title">Giới thiệu game ngắn gọn</p>
+        <button className="btn-play-now">PLAY NOW</button>
+      </div>
+
+      <div className="home-right">
+        <div className="image-placeholder">Khung ảnh Game</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
