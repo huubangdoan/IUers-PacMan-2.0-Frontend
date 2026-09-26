@@ -15,5 +15,34 @@ api.interceptors.request.use((config) => {
   }
   return config
 })
+/**
+ * HTTP Method POST: Gửi yêu cầu Đăng ký (Register)
+ * @param {Object} userData - Chứa { username, password, ... }
+ */
+export const registerUser = async (userData) => {
+  try {
+    // Gọi API POST /api/auth/register (hoặc endpoint tương ứng từ Backend)
+    const response = await api.post('/auth/register', userData)
+    return response.data
+  } catch (error) {
+    console.error('Lỗi khi đăng ký:', error)
+    throw error
+  }
+}
+
+/**
+ * HTTP Method POST: Gửi yêu cầu Đăng nhập (Login)
+ * @param {Object} credentials - Chứa { username, password }
+ */
+export const loginUser = async (credentials) => {
+  try {
+    // Gọi API POST /api/auth/login
+    const response = await api.post('/auth/login', credentials)
+    return response.data
+  } catch (error) {
+    console.error('Lỗi khi đăng nhập:', error)
+    throw error
+  }
+}
 
 export default api
