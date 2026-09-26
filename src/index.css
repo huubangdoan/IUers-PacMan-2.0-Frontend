@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;500;600;700&display=swap');
 :root {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --bg-black: #050505;        /* Đen tuyền nền trang */
+  --card-bg: #111111;         /* Đen đậm nền  */
+  --text-yellow: #f3e06e;     /* Vàng chanh nhạt tiêu đề */
+  --accent-yellow: #ffdf00;   /* Vàng tươi Pac-Man nút bấm / điểm nhấn */
+  --text-body: #f8e682;       /* Vàng kem văn bản */
+  --border-line: #333333;     /* Đường viền xám đen */
+  font-family: 'Montserrat' , system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   line-height: 1.5;
+
 }
 
 * {
@@ -9,26 +17,67 @@
 
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  background-color: var(--bg-black) !important;
+  color: var(--text-body);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+/* Định kiểu Header / Navbar */
+header, .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border-line);
+  background-color: var(--bg-black);
+}
+
+/* Định kiểu cho nút bấm chung (override nút mặc định của trình duyệt) */
+button {
+  background-color: var(--accent-yellow);
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #e6c800;
+  transform: translateY(-2px);
+}
+
+/* Tiêu đề IUers' Pacman */
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--text-yellow);
+  font-size: 48px;
+  margin-top: 20px;
 }
 .auth-box {
   background-color: #1a1a1a;
   border: 2px solid #f1c40f; /* Màu vàng Pac-Man */
-  border-radius: 8px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 32px 24px;
   width: 100%;
-  max-width: 360px;
-  margin: 40px auto;
-  box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+  max-width: 380px;
+  margin: 60px auto;
+  box-shadow: 0 0 20px rgba(255, 223, 0, 0.15);
   text-align: center;
   color: #ffffff;
 }
-
+/* auth modal ( đăng nhập / đăng ký ) */
 .auth-box h3 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: #f1c40f;
-  font-size: 18px;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 20px;
+  font-style:italic;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -36,23 +85,24 @@ body {
 .auth-inputs {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .auth-inputs input {
-  padding: 10px 12px;
-  background-color: #2b2b2b;
-  border: 1px solid #444;
-  border-radius: 4px;
-  color: #ffffff;
+  padding: 12px 14px;
+  background-color: #1a1a1a;
+  border: 1px solid  var(--border-line);
+  border-radius: 6px;
+  color: var(--text-body);
   font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
   outline: none;
   transition: border-color 0.2s;
 }
 
 .auth-inputs input:focus {
-  border-color: #f1c40f;
+  border-color: var(--accent-yellow);
 }
 
 .auth-actions {
@@ -63,29 +113,33 @@ body {
 
 .auth-actions button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 #btn-login {
-  background-color: #f1c40f;
-  color: #000;
+  background-color: var(--accent-yellow);
+  color: #000000;
 }
 
 #btn-login:hover {
-  background-color: #d4ac0d;
+  background-color: #e6c800;
+  transform: translateY(-2px);
 }
 
 #btn-register {
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #555;
+  background-color: transparent;
+  color: var(--text-yellow);
+  border: 1px solid var(--accent-yellow);
 }
 
 #btn-register:hover {
-  background-color: #444;
+  background-color: rgba(255, 223, 0, 0.1);
+  transform: translateY(-2px);
 }
