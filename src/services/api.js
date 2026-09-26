@@ -15,5 +15,17 @@ api.interceptors.request.use((config) => {
   }
   return config
 })
+// 1. Phương thức HTTP POST cho Đăng nhập
+export const loginApi = async (credentials) => {
+  // Gửi request POST tới endpoint /auth/login (hoặc /login tùy backend)
+  const response = await api.post('/auth/login', credentials)
+  return response.data
+}
 
+// 2. Phương thức HTTP POST cho Đăng ký
+export const registerApi = async (userData) => {
+  // Gửi request POST tới endpoint /auth/register (hoặc /register tùy backend)
+  const response = await api.post('/auth/register', userData)
+  return response.data
+}
 export default api
