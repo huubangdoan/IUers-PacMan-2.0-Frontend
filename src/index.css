@@ -11,3 +11,81 @@ body {
   margin: 0;
   padding: 2rem;
 }
+.auth-box {
+  background-color: #1a1a1a;
+  border: 2px solid #f1c40f; /* Màu vàng Pac-Man */
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+  text-align: center;
+  color: #ffffff;
+}
+
+.auth-box h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #f1c40f;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.auth-inputs input {
+  padding: 10px 12px;
+  background-color: #2b2b2b;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-inputs input:focus {
+  border-color: #f1c40f;
+}
+
+.auth-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.auth-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#btn-login {
+  background-color: #f1c40f;
+  color: #000;
+}
+
+#btn-login:hover {
+  background-color: #d4ac0d;
+}
+
+#btn-register {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+#btn-register:hover {
+  background-color: #444;
+}
