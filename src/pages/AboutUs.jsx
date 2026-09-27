@@ -5,6 +5,7 @@ function AboutUs() {
     { name: "Hữu Bằng", role: "Backend Dev", quote: "Quote ở đây" },
     { name: "Việt Nhật", role: "Backend / Database", quote: "Quote ở đây" },
     { name: "Huyền Trang", role: "Database / Security", quote: "Quote ở đây" },
+    { name: "Ngọc Quyền", role: "Frontend Dev", quote: "Quote ở đây" },
     { name: "Phương Châu", role: "Frontend Dev", quote: "Quote ở đây" }
   ];
 
