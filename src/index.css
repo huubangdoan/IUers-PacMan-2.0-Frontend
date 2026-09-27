@@ -143,3 +143,98 @@ h1 {
   background-color: rgba(255, 223, 0, 0.1);
   transform: translateY(-2px);
 }
+/* Container căn giữa màn hình */
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+/* Khung form nền trắng bo góc nhẹ */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon tròn phía trên */
+.login-logo-circle {
+  width: 70px;
+  height: 70px;
+  background-color: #f1c40f; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 38px;
+  font-weight: 900;
+  font-family: inherit;
+  margin-bottom: 28px;
+  box-shadow: 0 0 15px rgba(253, 203, 2, 0.5);
+}
+
+/* Form và các ô nhập liệu */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  font-size: 16px;
+  border: 1px solid #ccd0d5;
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #1c1e21;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+  border-color: #f1c40f;
+}
+
+/* Nút Đăng nhập xanh bo tròn */
+.btn-facebook-style {
+  margin-top: 6px;
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #f1c40f;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-facebook-style:hover {
+  background-color: #f1c40f;
+}
+
+/* Nút quay về trang chủ */
+.login-footer {
+  margin-top: 25px;
+}
+
+.btn-back-home {
+  background: none;
+  border: none;
+  color: #65676b;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-back-home:hover {
+  text-decoration: underline;
+}
