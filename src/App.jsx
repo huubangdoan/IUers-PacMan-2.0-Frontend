@@ -5,6 +5,7 @@ import AboutUs from './pages/AboutUs';
 import Introduction from './pages/Introduction';
 import Features from './pages/Features';
 import ContactUs from './pages/ContactUs';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   // Biến lưu trang hiện tại, mặc định mở web là vào trang 'home'
@@ -22,6 +23,7 @@ function App() {
         {currentPage === 'intro' && <Introduction />}
         {currentPage === 'features' && <Features />}
         {currentPage === 'contact' && <ContactUs />}
+        {currentPage === 'login' && <LoginPage setCurrentPage={setCurrentPage} />}
       </main>
     </div>
   );

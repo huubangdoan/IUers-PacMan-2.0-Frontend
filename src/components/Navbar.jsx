@@ -10,6 +10,7 @@ function Navbar({ setCurrentPage }) {
         <button onClick={() => setCurrentPage('intro')}>Introduction</button>
         <button onClick={() => setCurrentPage('features')}>Features</button>
         <button onClick={() => setCurrentPage('contact')}>Contact Us</button>
+        <button onClick={() => setCurrentPage('login')}>Đăng Nhập</button>
       </nav>
       <div className="nav-auth">
         <button id="nav-btn-auth">Đăng Nhập</button>
