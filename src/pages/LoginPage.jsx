@@ -25,7 +25,7 @@ function LoginPage({ setCurrentPage }) {
             <input
               type="text"
               id="login-username"
-              placeholder="Số di động hoặc email"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -47,7 +47,18 @@ function LoginPage({ setCurrentPage }) {
             Đăng nhập
           </button>
         </form>
+{/* --- ĐOẠN NÀY DƯỚI THẺ </form> --- */}
+        <div className="login-divider"></div>
 
+        <button 
+          type="button" 
+          id="btn-register-open" 
+          className="btn-register-style"
+          onClick={() => console.log('Bấm đăng ký')}
+        >
+          Tạo tài khoản mới
+        </button>
+        {/* ------------------------------------- */}
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
           <button 
