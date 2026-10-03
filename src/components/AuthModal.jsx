@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { loginApi, registerApi } from '../services/api';
-function AuthModal() {
+function AuthModal({ onSuccess }) {
   // Quản lý state cho username và password
   const [formData, setFormData] = useState({
     username: '',
@@ -12,7 +12,9 @@ function AuthModal() {
       [e.target.id]: e.target.value
     });
   };
-
+// Thêm state loading để vô hiệu hóa nút bấm khi đang gửi API
+  const [loading, setLoading] = useState(false);
+  
   // Xử lý sự kiện bấm nút Đăng Nhập
   const handleLogin = async () => {
     // kiểm tra rỗng
