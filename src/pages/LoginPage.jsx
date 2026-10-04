@@ -47,18 +47,17 @@ function LoginPage({ setCurrentPage }) {
             Đăng nhập
           </button>
         </form>
-{/* --- ĐOẠN NÀY DƯỚI THẺ </form> --- */}
+{/*ĐOẠN NÀY DƯỚI THẺ </form> */}
         <div className="login-divider"></div>
 
         <button 
           type="button" 
           id="btn-register-open" 
           className="btn-register-style"
-          onClick={() => console.log('Bấm đăng ký')}
+          onClick={() => setCurrentPage('register')}
         >
           Tạo tài khoản mới
         </button>
-        {/* ------------------------------------- */}
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
           <button 
