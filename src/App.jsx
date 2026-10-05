@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-import Introduction from './pages/Introduction';
-import Features from './pages/Features';
 import ContactUs from './pages/ContactUs';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -21,8 +19,6 @@ function App() {
       <main className="content-container">
         {currentPage === 'home' && <Home />}
         {currentPage === 'about' && <AboutUs />}
-        {currentPage === 'intro' && <Introduction />}
-        {currentPage === 'features' && <Features />}
         {currentPage === 'contact' && <ContactUs />}
         {currentPage === 'login' && <LoginPage setCurrentPage={setCurrentPage} />}
         {currentPage === 'register' && <RegisterPage setCurrentPage={setCurrentPage} />}
