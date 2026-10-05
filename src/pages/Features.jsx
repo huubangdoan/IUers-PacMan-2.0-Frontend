@@ -2,12 +2,12 @@ import React from 'react';
 
 function Features() {
   return (
-    <div className="page feature-page">
-      <div className="feature-left">
+    <div className="page features-page">
+      <div className="features-left">
         <h1 className="page-heading">What feature ?</h1>
         <p className="desc-text">Mô tả các tính năng chính của game Pac-Man và các thuật toán DSA...</p>
       </div>
-      <div className="feature-gallery">
+      <div className="features-right">
         <div className="gallery-item large">Ảnh dọc to</div>
         <div className="gallery-col">
           <div className="gallery-item">Ảnh nhỏ 1</div>
