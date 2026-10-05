@@ -255,7 +255,7 @@ h1 {
 .btn-back-home:hover {
   text-decoration: underline;
 }
-/* Đường kẻ ngăn cách *
+/* Đường kẻ ngăn cách */
 .login-divider {
   width: 100%;
   height: 1px;
@@ -527,3 +527,77 @@ p {
     0 0 6px rgba(253, 203, 2, 0.4),
     0 2px 6px rgba(0, 0, 0, 0, 1.5) !important;
 }
+/* ===== Navbar ===== */
+.nav-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: var(--text-yellow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Khung ảnh giả (placeholder) ===== */
+.image-placeholder,
+.avatar-placeholder,
+.top-banner-placeholder,
+.gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--card-bg);
+  border: 1.5px dashed rgba(253, 203, 2, 0.4);
+  border-radius: 14px;
+  color: var(--text-body);
+}
+
+.image-placeholder { width: 100%; min-height: 320px; }
+.intro-art { max-width: 500px; min-height: 380px; }
+
+.avatar-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+}
+
+.top-banner-placeholder {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.image-caption {
+  margin-top: 16px;
+  font-style: italic;
+  color: #cccccc;
+  text-align: center;
+}
+
+/* ===== Home ===== */
+.home-right { flex: 1; max-width: 520px; }
+.sub-title { font-size: 1.1rem; margin: 10px 0 24px; }
+.btn-play-now { padding: 14px 40px; font-size: 1.1rem; }
+
+/* ===== Features gallery ===== */
+.gallery-item { min-height: 120px; padding: 10px; }
+.gallery-item.large { height: 100%; min-height: 320px; }
+.gallery-col { display: flex; flex-direction: column; gap: 20px; flex: 1; }
+.feature-gallery .large { flex: 1; }
+.desc-text { line-height: 1.8; color: #dddddd; }
+
+/* ===== Contact ===== */
+.contact-details { width: 100%; max-width: 800px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* ===== Tiêu đề chung các trang ===== */
+.page-heading { font-size: 2.8rem; color: #f1c40f; }
