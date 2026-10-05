@@ -18,6 +18,23 @@
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  /* Sử dụng ảnh nền từ thư mục assets */
+  background-image: 
+    linear-gradient(rgba(10, 10, 20, 0.4), rgba(5, 5, 15, 0.5)), /* Phủ 1 lớp tối để chữ và các viền vàng neon nổi bật, không bị chói */
+    url('./assets/game-bg.jpg');
+  backdrop-filter: brightness(1.15) contrast(1.05);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Cố định ảnh nền khi cuộn trang */
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+  
+
+ /* margin: 0;
+  padding: 0;
   background-color: var(--bg-black) !important;
   color: var(--text-body);
   font-family: 'Montserrat', sans-serif;
@@ -246,7 +263,7 @@ h1 {
   margin: 20px 0 16px 0;
 }
 
-/* Nút Tạo tài khoản mới phong cách Facebook viền vàng */
+/* Nút Tạo tài khoản viền vàng */
 .btn-register-style {
   width: 75%;
   padding: 12px;
@@ -275,9 +292,7 @@ h1 {
 .home-left {
   max-width: 500px; /* Giới hạn độ rộng khối chữ */
 }
-/* ===================================================
-   1. CĂN CHỈNH TRANG ABOUT US (Tiêu đề giữa, 4-5 cột ngang)
-   =================================================== */
+/*  CĂN CHỈNH trang ABOUT US (Tiêu đề giữa, 4-5 cột ngang) */
 .about-page {
   padding: 40px 60px;
   display: flex;
@@ -341,9 +356,7 @@ h1 {
 }
 
 
-/* ===================================================
-   2. CĂN CHỈNH TRANG INTRODUCTION (Chia 2 bên: Ảnh trái - Chữ phải)
-   =================================================== */
+/* CĂN CHỈNH INTRODUCTION (Chia 2 bên: Ảnh trái - Chữ phải)*/
 .intro-page {
   display: flex;
   align-items: center;
@@ -385,9 +398,7 @@ h1 {
 }
 
 
-/* ===================================================
-   3. CĂN CHỈNH TRANG FEATURES (Dịch lề, bố cục cân đối)
-   =================================================== */
+/* CĂN CHỈNH TRANG FEATURES (Dịch lề, bố cục cân đối) */
 .features-page {
   padding: 50px 100px;
   display: flex;
@@ -405,14 +416,114 @@ h1 {
   display: flex;
   gap: 20px;
 }
+  
+.feature-placeholder-big {
+  width: 220px;
+  min-height: 360px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1.5px dashed #FDCB02;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FDCB02;
+}
+
+.feature-small-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 15px;
+}
+
+.feature-placeholder-small {
+  height: 172px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1.5px dashed #FDCB02;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FDCB02;
+}
 
 
-/* ===================================================
-   4. CĂN CHỈNH TRANG CONTACT US (Căn giữa nội dung)
-   =================================================== */
+/* CĂN CHỈNH TRANG CONTACT US (Căn giữa nội dung) */
 .contact-page {
   padding: 40px 80px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Đưa toàn bộ form & thông tin liên hệ ra giữa */
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FDCB02;
+  box-shadow: 0 0 12px rgba(253, 203, 2, 0.3);
+  margin-bottom: 15px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Khoảng cách giữa các phần */
+}
+
+.home-section {
+  width: 100%;
+  border-top: 1px solid rgba(253, 203, 2, 0.1); /* Đường ngăn cách ánh vàng mờ nhẹ */
+  padding-top: 60px;
+}
+.member-card, 
+.login-card, 
+.feature-placeholder-big, 
+.feature-placeholder-small {
+  background: rgba(20, 20, 35, 0.45) !important; /* Nền trong suốt mờ mờ */
+  backdrop-filter: blur(12px) !important;        /* Làm mờ hậu cảnh phía sau */
+  border: 1px solid rgba(253, 203, 2, 0.35) !important; /* Viền vàng mảnh */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+              inset 0 0 15px rgba(253, 203, 2, 0.08) !important; /* Ánh sáng hắt từ trong ra */
+}
+
+/* Tiêu đề phát sáng màu vàng kim */
+.main-title, .page-heading {
+  color: #FFE600 !important;
+  text-shadow: 0 0 12px rgba(253, 203, 2, 0.6), 
+               0 0 25px rgba(253, 203, 2, 0.3);
+}
+
+/* Nút bấm vàng nổi bần bật */
+.btn-play-now, .navbar-menu button:hover {
+  box-shadow: 0 0 20px rgba(253, 203, 2, 0.5) !important;
+}
+
+/* Chữ mô tả chuyển sang trắng sáng thay vì xám đục */
+.desc-text, .sub-title, p {
+  color: #f1f5f9 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Chữ mô tả, phụ đề và các đoạn văn bản */
+.sub-title,
+.desc-text,
+p {
+  color: #ffffff !important;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 1.5),
+    0 0 12px rgba(0, 0, 0, 1);
+}
+
+/* Câu trích dẫn (quote) màu vàng thêm bóng sâu */
+.intro-quote,
+.quote {
+  text-shadow: 
+    0 0 6px rgba(253, 203, 2, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0, 1.5) !important;
 }
