@@ -1,13 +1,33 @@
 import React, { useState } from 'react';
+import { loginApi } from '../services/api';
 
 function LoginPage({ setCurrentPage }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Đây là chỗ để Quyền gắn hàm gọi API Login
-    console.log('Đăng nhập với:', { username, password });
+
+    setLoading(true);
+    try {
+      // Interceptor đã trả về data, nên res = { token, username, role }
+      const res = await loginApi({ username, password });
+
+      localStorage.setItem('token', res.token);
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ username: res.username, role: res.role })
+      );
+
+      alert('Đăng nhập thành công!');
+      setCurrentPage('home');
+    } catch (err) {
+      console.error('Lỗi đăng nhập:', err);
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -43,25 +63,31 @@ function LoginPage({ setCurrentPage }) {
             />
           </div>
 
-          <button type="submit" id="btn-login-submit" className="btn-facebook-style">
-            Đăng nhập
+          <button
+            type="submit"
+            id="btn-login-submit"
+            className="btn-facebook-style"
+            disabled={loading}
+          >
+            {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
           </button>
         </form>
-{/*ĐOẠN NÀY DƯỚI THẺ </form> */}
+
         <div className="login-divider"></div>
 
-        <button 
-          type="button" 
-          id="btn-register-open" 
+        <button
+          type="button"
+          id="btn-register-open"
           className="btn-register-style"
           onClick={() => setCurrentPage('register')}
         >
           Tạo tài khoản mới
         </button>
+
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="btn-back-home"
             onClick={() => setCurrentPage('home')}
           >

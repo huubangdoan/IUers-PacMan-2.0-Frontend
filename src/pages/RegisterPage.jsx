@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { registerApi } from '../services/api';
 
 function RegisterPage({ setCurrentPage }) {
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: '',
     confirmPassword: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -15,15 +16,45 @@ function RegisterPage({ setCurrentPage }) {
     });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert('Mật khẩu xác nhận không khớp!');
       return;
     }
-    // Chỗ để Ngọc Quyền gắn API Register
-    console.log('Dữ liệu đăng ký:', formData);
+
+    setLoading(true);
+    try {
+      // Backend chỉ cần username và password
+      await registerApi({
+        username: formData.username,
+        password: formData.password
+      });
+      alert('Đăng ký thành công! Hãy đăng nhập.');
+      setCurrentPage('login');
+    } catch (err) {
+      console.error('Lỗi đăng ký:', err);
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  // Gộp 3 ô input giống nhau thành 1 hàm dùng chung
+  const renderInput = (name, type, placeholder) => (
+    <div className="input-group">
+      <input
+        type={type}
+        name={name}
+        id={`register-${name}`}
+        placeholder={placeholder}
+        value={formData[name]}
+        onChange={handleChange}
+        required
+      />
+    </div>
+  );
 
   return (
     <div className="login-page-container">
@@ -41,52 +72,25 @@ function RegisterPage({ setCurrentPage }) {
 
         {/* Form đăng ký */}
         <form onSubmit={handleRegister} className="login-form">
-          <div className="input-group">
-            <input
-              type="text"
-              name="username"
-              id="register-username"
-              placeholder="Tên tài khoản / Username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          {renderInput('username', 'text', 'Tên tài khoản / Username')}
+          {renderInput('password', 'password', 'Mật khẩu mới')}
+          {renderInput('confirmPassword', 'password', 'Xác nhận lại mật khẩu')}
 
-          <div className="input-group">
-            <input
-              type="password"
-              name="password"
-              id="register-password"
-              placeholder="Mật khẩu mới"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <input
-              type="password"
-              name="confirmPassword"
-              id="register-confirm-password"
-              placeholder="Xác nhận lại mật khẩu"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button type="submit" id="btn-register-submit" className="btn-facebook-style">
-            Đăng ký
+          <button
+            type="submit"
+            id="btn-register-submit"
+            className="btn-facebook-style"
+            disabled={loading}
+          >
+            {loading ? 'Đang đăng ký...' : 'Đăng ký'}
           </button>
         </form>
 
         <div className="login-divider"></div>
 
         {/* Nút quay lại trang Đăng nhập */}
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn-register-style"
           onClick={() => setCurrentPage('login')}
         >
@@ -95,8 +99,8 @@ function RegisterPage({ setCurrentPage }) {
 
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="btn-back-home"
             onClick={() => setCurrentPage('home')}
           >
