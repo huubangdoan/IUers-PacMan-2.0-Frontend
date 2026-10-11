@@ -17,9 +17,9 @@ function App() {
 
       {/* Bấm menu nào thì hiển thị trang đó */}
       <main className="content-container">
-        {currentPage === 'home' && <Home />}
-        {currentPage === 'about' && <AboutUs />}
-        {currentPage === 'contact' && <ContactUs />}
+        {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
+        {currentPage === 'about' && <AboutUs setCurrentPage={setCurrentPage} />}
+        {currentPage === 'contact' && <ContactUs setCurrentPage={setCurrentPage} />}
         {currentPage === 'login' && <LoginPage setCurrentPage={setCurrentPage} />}
         {currentPage === 'register' && <RegisterPage setCurrentPage={setCurrentPage} />}
       </main>
