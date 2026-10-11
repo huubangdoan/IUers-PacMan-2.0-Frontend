@@ -73,7 +73,7 @@ function RegisterPage({ setCurrentPage }) {
         {/* Form đăng ký */}
         <form onSubmit={handleRegister} className="login-form">
           {renderInput('username', 'text', 'Tên tài khoản / Username')}
-          {renderInput('password', 'password', 'Mật khẩu mới')}
+          {renderInput('password', 'password', 'Mật khẩu')}
           {renderInput('confirmPassword', 'password', 'Xác nhận lại mật khẩu')}
 
           <button
