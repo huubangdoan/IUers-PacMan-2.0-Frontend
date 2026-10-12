@@ -3,7 +3,7 @@ import axios from 'axios'
 // 1. Khởi tạo instance với Timeout và BaseURL linh hoạt từ Env
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '/api', // Dùng cho Vite (nếu dùng CRA thì dùng process.env.REACT_APP_API_BASE_URL)
-  timeout: 10000, // 10 giây timeout
+  timeout: 90000, 
   headers: {
     'Content-Type': 'application/json',
   },
