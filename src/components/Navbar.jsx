@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Navbar({ setCurrentPage }) {
   return (
@@ -9,6 +8,7 @@ function Navbar({ setCurrentPage }) {
         <button onClick={() => setCurrentPage('about')}>About Us</button>
         <button onClick={() => setCurrentPage('contact')}>Contact Us</button>
         <button onClick={() => setCurrentPage('login')}>Đăng Nhập</button>
+        <button onClick={() => setCurrentPage('game')}>Game</button>
       </nav>
     </header>
   );
