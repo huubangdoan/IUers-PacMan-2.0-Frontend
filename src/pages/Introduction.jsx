@@ -1,5 +1,5 @@
 import React from 'react';
-import introArt from '../assets/intro-art.jpg';
+import introArt from '../assets/intro-art.webp';
 function Introduction() {
   return (
     <div className="page intro-page">

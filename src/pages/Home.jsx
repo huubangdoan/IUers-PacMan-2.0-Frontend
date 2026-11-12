@@ -1,5 +1,5 @@
 import React from 'react';
-import homeArt from '../assets/home-art.jpg';
+import homeArt from '../assets/home-art.webp';
 import Introduction from './Introduction';
 import Features from './Features';
 
