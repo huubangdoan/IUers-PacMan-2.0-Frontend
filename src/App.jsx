@@ -5,6 +5,7 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import GameMenu from './pages/GameMenu';
 
 function App() {
   // Biến lưu trang hiện tại, mặc định mở web là vào trang 'home'
@@ -22,6 +23,7 @@ function App() {
         {currentPage === 'contact' && <ContactUs setCurrentPage={setCurrentPage} />}
         {currentPage === 'login' && <LoginPage setCurrentPage={setCurrentPage} />}
         {currentPage === 'register' && <RegisterPage setCurrentPage={setCurrentPage} />}
+        {currentPage === 'game-menu' && <GameMenu setCurrentPage={setCurrentPage} />}
       </main>
     </div>
   );
