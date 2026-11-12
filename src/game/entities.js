@@ -29,14 +29,16 @@ export class Lightpoint extends Entity {
 }
 
 export class Ghost extends Entity {
-  constructor(row, col, color) {
+  constructor(row, col, ghostType) {
     super('ghost', LAYER.GHOST, row, col);
-    this.color = color;
+    this.ghostType = ghostType;
   }
 }
 
 export class Pacman extends Entity {
   constructor(row, col) {
     super('pacman', LAYER.PACMAN, row, col);
+    this.direction = 'right';
+    this.frame = 1;
   }
 }

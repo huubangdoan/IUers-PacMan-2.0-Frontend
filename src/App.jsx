@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import GamePage from './pages/GamePage';
+import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import GameMenu from './pages/GameMenu';
@@ -25,6 +26,7 @@ function App() {
         {currentPage === 'register' && <RegisterPage setCurrentPage={setCurrentPage} />}
         {currentPage === 'game-menu' && <GameMenu setCurrentPage={setCurrentPage} />}
       </main>
+      {currentPage === 'game' && <GamePage />}
     </div>
   );
 }
