@@ -1,5 +1,8 @@
 const files = import.meta.glob(
-  '../assets/Default Skin/**/*.{png,jpg,jpeg,gif,webp}',
+  [
+    '../assets/Default Skin/**/*.{png,jpg,jpeg,gif,webp}',
+    '../assets/Menu Graphics/*.{png,jpg,jpeg,gif,webp}',
+  ],
   { eager: true, import: 'default' }
 );
 
