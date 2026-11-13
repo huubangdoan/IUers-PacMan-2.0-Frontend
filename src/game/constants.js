@@ -2,6 +2,7 @@ export const LAYER = {
   BACKGROUND: 0,
   WALL: 1,
   LIGHTPOINT: 2,
+  FRUIT: 3,
   GHOST: 3,
   PACMAN: 4,
 };
