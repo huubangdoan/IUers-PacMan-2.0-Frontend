@@ -2,9 +2,8 @@ function drawBackground(ctx, e, size, sprites) {
   ctx.drawImage(sprites['other/Background.webp'], 0, 0, e.cols * size, e.rows * size);
 }
 
-function drawWall(ctx, e, size) {
-  ctx.fillStyle = '#0a1a6b';
-  ctx.fillRect(e.col * size, e.row * size, size, size);
+function drawWall(ctx, e, size, sprites) {
+   ctx.drawImage(sprites['Menu Graphics/gachmap1.webp'], e.col * size, e.row * size, size, size);
 }
 
 function drawLightpoint(ctx, e, size, sprites) {
