@@ -12,6 +12,7 @@ function GameCanvas({ tileSize = 32 }) {
 
     canvas.width = MAP_1[0].length * tileSize;
     canvas.height = MAP_1.length * tileSize;
+  
      loadSprites().then((sprites) => {
   const queue = buildRenderQueue(MAP_1, SPAWNS);
   while (!queue.isEmpty()) {
