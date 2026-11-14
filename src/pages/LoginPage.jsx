@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { loginApi } from '../services/api';
 
 function LoginPage({ setCurrentPage }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const { state } = useLocation();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    setError('');
     setLoading(true);
     try {
       // Interceptor đã trả về data, nên res = { token, username, role }
@@ -20,11 +23,9 @@ function LoginPage({ setCurrentPage }) {
         JSON.stringify({ username: res.username, role: res.role })
       );
 
-      alert('Đăng nhập thành công!');
-      setCurrentPage('home');
+      setCurrentPage('game');
     } catch (err) {
-      console.error('Lỗi đăng nhập:', err);
-      alert(err.message);
+      setError(err.message || 'Đăng nhập thất bại. Vui lòng thử lại.');
     } finally {
       setLoading(false);
     }
@@ -40,25 +41,41 @@ function LoginPage({ setCurrentPage }) {
           </div>
         </div>
 
-        <form onSubmit={handleLogin} className="login-form">
+        {state?.notice && <p className="form-feedback form-feedback--success" role="status">{state.notice}</p>}
+        {error && <p id="login-error" className="form-feedback form-feedback--error" role="alert">{error}</p>}
+
+        <form onSubmit={handleLogin} className="login-form" aria-describedby={error ? 'login-error' : undefined}>
           <div className="input-group">
+            <label htmlFor="login-username">Tên đăng nhập</label>
             <input
               type="text"
+              name="username"
               id="login-username"
-              placeholder="Username"
+              autoComplete="username"
+              spellCheck="false"
+              placeholder="Nhập tên đăng nhập"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setError('');
+              }}
               required
             />
           </div>
 
           <div className="input-group">
+            <label htmlFor="login-password">Mật khẩu</label>
             <input
               type="password"
+              name="password"
               id="login-password"
-              placeholder="Mật khẩu"
+              autoComplete="current-password"
+              placeholder="Nhập mật khẩu"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError('');
+              }}
               required
             />
           </div>
@@ -75,24 +92,22 @@ function LoginPage({ setCurrentPage }) {
 
         <div className="login-divider"></div>
 
-        <button
-          type="button"
+        <Link
           id="btn-register-open"
           className="btn-register-style"
-          onClick={() => setCurrentPage('register')}
+          to="/register"
         >
           Tạo tài khoản mới
-        </button>
+        </Link>
 
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
-          <button
-            type="button"
+          <Link
             className="btn-back-home"
-            onClick={() => setCurrentPage('home')}
+            to="/"
           >
             ← Quay lại Trang chủ
-          </button>
+          </Link>
         </div>
       </div>
     </div>

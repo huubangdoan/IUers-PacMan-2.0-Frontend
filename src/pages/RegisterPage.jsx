@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { registerApi } from '../services/api';
 
 function RegisterPage({ setCurrentPage }) {
@@ -8,6 +9,7 @@ function RegisterPage({ setCurrentPage }) {
     confirmPassword: ''
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -18,9 +20,10 @@ function RegisterPage({ setCurrentPage }) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError('');
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Mật khẩu xác nhận không khớp!');
+      setError('Mật khẩu xác nhận không khớp.');
       return;
     }
 
@@ -31,26 +34,29 @@ function RegisterPage({ setCurrentPage }) {
         username: formData.username,
         password: formData.password
       });
-      alert('Đăng ký thành công! Hãy đăng nhập.');
-      setCurrentPage('login');
+      setCurrentPage('login', { state: { notice: 'Đăng ký thành công. Hãy đăng nhập.' } });
     } catch (err) {
-      console.error('Lỗi đăng ký:', err);
-      alert(err.message);
+      setError(err.message || 'Đăng ký thất bại. Vui lòng thử lại.');
     } finally {
       setLoading(false);
     }
   };
 
   // Gộp 3 ô input giống nhau thành 1 hàm dùng chung
-  const renderInput = (name, type, placeholder) => (
+  const renderInput = (name, type, label, autoComplete) => (
     <div className="input-group">
+      <label htmlFor={`register-${name}`}>{label}</label>
       <input
         type={type}
         name={name}
         id={`register-${name}`}
-        placeholder={placeholder}
+        autoComplete={autoComplete}
+        placeholder={`Nhập ${label.toLowerCase()}`}
         value={formData[name]}
-        onChange={handleChange}
+        onChange={(event) => {
+          handleChange(event);
+          setError('');
+        }}
         required
       />
     </div>
@@ -71,10 +77,12 @@ function RegisterPage({ setCurrentPage }) {
         </h2>
 
         {/* Form đăng ký */}
-        <form onSubmit={handleRegister} className="login-form">
-          {renderInput('username', 'text', 'Tên tài khoản / Username')}
-          {renderInput('password', 'password', 'Mật khẩu')}
-          {renderInput('confirmPassword', 'password', 'Xác nhận lại mật khẩu')}
+        {error && <p id="register-error" className="form-feedback form-feedback--error" role="alert">{error}</p>}
+
+        <form onSubmit={handleRegister} className="login-form" aria-describedby={error ? 'register-error' : undefined}>
+          {renderInput('username', 'text', 'Tên đăng nhập', 'username')}
+          {renderInput('password', 'password', 'Mật khẩu', 'new-password')}
+          {renderInput('confirmPassword', 'password', 'Xác nhận mật khẩu', 'new-password')}
 
           <button
             type="submit"
@@ -89,23 +97,21 @@ function RegisterPage({ setCurrentPage }) {
         <div className="login-divider"></div>
 
         {/* Nút quay lại trang Đăng nhập */}
-        <button
-          type="button"
+        <Link
           className="btn-register-style"
-          onClick={() => setCurrentPage('login')}
+          to="/login"
         >
           Bạn đã có tài khoản?
-        </button>
+        </Link>
 
         {/* Nút quay lại trang chủ */}
         <div className="login-footer">
-          <button
-            type="button"
+          <Link
             className="btn-back-home"
-            onClick={() => setCurrentPage('home')}
+            to="/"
           >
             ← Quay lại Trang chủ
-          </button>
+          </Link>
         </div>
       </div>
     </div>

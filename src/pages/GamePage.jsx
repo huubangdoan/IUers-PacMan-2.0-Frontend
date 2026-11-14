@@ -1,10 +1,10 @@
-import GameCanvas from '../components/GameCanvas';
+import GameCanvas from '../components/game/GameCanvas';
+import { DEFAULT_GAME_MODE } from '../game/data/modes';
 
-function GamePage() {
+function GamePage({ onBack, mapDefinition, gameMode = DEFAULT_GAME_MODE }) {
   return (
-    <div className="page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 className="page-heading">Map 1</h1>
-      <GameCanvas tileSize={32} />
+    <div className="game-page">
+      <GameCanvas tileSize={32} onBack={onBack} mapDefinition={mapDefinition} gameMode={gameMode} />
     </div>
   );
 }
