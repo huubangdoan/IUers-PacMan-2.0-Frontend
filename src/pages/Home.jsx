@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import homeArt from '../assets/home-art.jpg';
 import Introduction from './Introduction';
 import Features from './Features';
 
-function Home() {
+function Home({ setCurrentPage }) {
   return (
     <div className="home-container">
     <div className="page home-page">
       <div className="home-left">
         <h1 className="main-title">IUers' Pacman</h1>
         <p className="sub-title">Giới thiệu game ngắn gọn</p>
-        <Link className="btn-play-now" to="/login">PLAY NOW</Link>
+        <button className="btn-play-now" onClick={() => setCurrentPage('login')}>PLAY NOW</button>
       </div>
 
       <div className="home-right">
