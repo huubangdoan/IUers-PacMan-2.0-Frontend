@@ -4,6 +4,11 @@ import { DEFAULT_GAME_MODE } from '../../game/data/modes';
 
 function getWebSocketUrl() {
   if (import.meta.env.VITE_WS_BASE_URL) return import.meta.env.VITE_WS_BASE_URL;
+
+  if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+    return 'wss://iuers-pacman-2-0-backend.onrender.com/ws/game';
+  }
+
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   return `${protocol}//${window.location.host}/ws/game`;
 }
