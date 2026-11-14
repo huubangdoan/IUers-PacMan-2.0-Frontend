@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/ws/:path*",
+      "destination": "https://iuers-pacman-2-0-backend.onrender.com/ws/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://iuers-pacman-2-0-backend.onrender.com/api/:path*"
     },

@@ -54,7 +54,7 @@ function App() {
 
       <main id="main-content" className="content-container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setCurrentPage={setCurrentPage} />} />
           <Route path="/about" element={<AboutUs setCurrentPage={setCurrentPage} />} />
           <Route path="/contact" element={<ContactUs setCurrentPage={setCurrentPage} />} />
           <Route path="/login" element={<LoginPage setCurrentPage={setCurrentPage} />} />
