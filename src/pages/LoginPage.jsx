@@ -21,7 +21,7 @@ function LoginPage({ setCurrentPage }) {
       );
 
       alert('Đăng nhập thành công!');
-      setCurrentPage('home');
+      setCurrentPage('game');
     } catch (err) {
       console.error('Lỗi đăng nhập:', err);
       alert(err.message);
