@@ -1,11 +1,10 @@
-import GameCanvas from '../components/GameCanvas';
+import GameCanvas from '../components/game/GameCanvas';
 
-function GamePage() {
+function GamePage({ onBack }) {
   return (
-    <div className="page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 className="page-heading">Map 1</h1>
-      <GameCanvas tileSize={32} />
-    </div>
+    <main className="game-page">
+      <GameCanvas tileSize={32} onBack={onBack} />
+    </main>
   );
 }
 

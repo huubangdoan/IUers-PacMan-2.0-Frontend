@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { loginApi, registerApi } from '../services/api';
+import { loginApi, registerApi } from '../../services/api';
 function AuthModal({ onSuccess }) {
   // Quản lý state cho username và password
   const [formData, setFormData] = useState({
