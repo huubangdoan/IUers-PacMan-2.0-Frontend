@@ -22,7 +22,7 @@ body {
   /* Sử dụng ảnh nền từ thư mục assets */
   background-image: 
     linear-gradient(rgba(10, 10, 20, 0.4), rgba(5, 5, 15, 0.5)), /* Phủ 1 lớp tối để chữ và các viền vàng neon nổi bật, không bị chói */
-    url('./assets/game-bg.jpg');
+    url('./assets/game-bg.webp');
   backdrop-filter: brightness(1.15) contrast(1.05);
   background-size: cover;
   background-position: center;
