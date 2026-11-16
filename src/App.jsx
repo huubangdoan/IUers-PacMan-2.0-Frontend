@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Stack from './utils/Stack';
+import GameMenu from './pages/GameMenu';
 
 const PAGE_BY_PATH = {
   '/': 'home',
@@ -59,6 +60,7 @@ function App() {
           <Route path="/contact" element={<ContactUs setCurrentPage={setCurrentPage} />} />
           <Route path="/login" element={<LoginPage setCurrentPage={setCurrentPage} />} />
           <Route path="/register" element={<RegisterPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/game-menu" element={<GameMenu setCurrentPage={setCurrentPage} />} />
           <Route
             path="/game"
             element={localStorage.getItem('token')
