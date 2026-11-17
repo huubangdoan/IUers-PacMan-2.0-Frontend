@@ -1,11 +1,11 @@
 import { loadSprites } from '../assets/sprites';
 import { validateGameMode } from '../contracts/GameMode';
 import { validateMapDefinition } from '../contracts/MapDefinition';
-import { DEFAULT_GAME_MODE, getGameMode } from '../data/modes';
 import { getMapDefinition } from '../data/maps';
-import EntityFactory from './EntityFactory';
+import { DEFAULT_GAME_MODE, getGameMode } from '../data/modes';
 import FeatureManager from '../features/FeatureManager';
 import GameRenderer from '../rendering/GameRenderer';
+import EntityFactory from './EntityFactory';
 import GameSocket from './GameSocket';
 import GameStateMachine from './GameStateMachine';
 import KeyboardController from './KeyboardController';
@@ -128,6 +128,7 @@ export default class PacmanGame {
       direction: direction.name,
       row: target.row,
       col: target.col,
+      timestamp: Date.now(),
     });
     return true;
   }
