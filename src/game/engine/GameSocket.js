@@ -34,8 +34,8 @@ export default class GameSocket {
     this.socket.addEventListener('close', () => this.emit('close'));
   }
 
-  sendMove({ sequence, direction, row, col }) {
-    this.send({ type: 'MOVE', sequence, direction, row, col });
+  sendMove({ sequence, direction, row, col, timestamp }) {
+    this.send({ type: 'MOVE', sequence, direction, row, col, timestamp });
   }
 
   finish() {
