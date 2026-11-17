@@ -28,7 +28,7 @@ export default function GameMenu({ setCurrentPage }) {
 
         {panel === 'menu' && (
           <div className="game-menu-actions">
-            <button className="game-menu-primary" onClick={() => setPanel('coming-soon')}>START GAME</button>
+            <button className="game-menu-primary" onClick={() => setCurrentPage('game')}>START GAME</button>
             <button onClick={() => setPanel('instructions')}>HOW TO PLAY</button>
             <button onClick={() => setCurrentPage('home')}>BACK TO HOME</button>
           </div>
@@ -39,14 +39,6 @@ export default function GameMenu({ setCurrentPage }) {
             <h2>HOW TO PLAY</h2>
             <p>Use the arrow keys to move Pac-Man, collect dots, and avoid ghosts.</p>
             <p>These are introductory instructions; final controls and rules will be updated when gameplay is integrated.</p>
-            <button onClick={() => setPanel('menu')}>BACK TO MENU</button>
-          </div>
-        )}
-
-        {panel === 'coming-soon' && (
-          <div className="game-menu-panel" role="status">
-            <h2>GAMEPLAY IN PROGRESS</h2>
-            <p>The game menu is ready. The gameplay screen will be connected when the game engine is available.</p>
             <button onClick={() => setPanel('menu')}>BACK TO MENU</button>
           </div>
         )}

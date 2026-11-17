@@ -16,6 +16,7 @@ const PAGE_BY_PATH = {
   '/contact': 'contact',
   '/login': 'login',
   '/register': 'register',
+  '/game-menu': 'game-menu',
   '/game': 'game',
 };
 
