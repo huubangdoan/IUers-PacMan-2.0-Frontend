@@ -1,8 +1,10 @@
+ import MoveBatcher from './MoveBatcher';
 export default class GameSocket {
   constructor(url) {
     this.url = url;
     this.socket = null;
     this.listeners = new Map();
+    this.batcher = new MoveBatcher((message) => this.send(message), 150);
   }
 
   on(eventName, listener) {
@@ -31,14 +33,18 @@ export default class GameSocket {
     this.socket.addEventListener('error', () => {
       this.emit('error', new Error('Không kết nối được backend game.'));
     });
-    this.socket.addEventListener('close', () => this.emit('close'));
+    this.socket.addEventListener('close', () => {
+      this.batcher.stop();
+      this.emit('close');
+    });
   }
-
+// Không gửi ngay nữa, chỉ bỏ vào hàng đợi
   sendMove({ sequence, direction, row, col, timestamp }) {
-    this.send({ type: 'MOVE', sequence, direction, row, col, timestamp });
+    this.batcher.add({, sequence, direction, row, col, timestamp });
   }
 
   finish() {
+    this.batcher.flush();// gửi nốt các bước còn trong hàng đợi trước khi kết thúc
     this.send({ type: 'FINISH' });
   }
 
@@ -49,6 +55,7 @@ export default class GameSocket {
   }
 
   close() {
+    this.batcher.stop();
     this.socket?.close();
     this.listeners.clear();
   }
