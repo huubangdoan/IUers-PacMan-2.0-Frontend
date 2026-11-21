@@ -40,7 +40,7 @@ export default class GameSocket {
   }
 // Không gửi ngay nữa, chỉ bỏ vào hàng đợi
   sendMove({ sequence, direction, row, col, timestamp }) {
-    this.batcher.add({, sequence, direction, row, col, timestamp });
+    this.batcher.add({ sequence, direction, row, col, timestamp });
   }
 
   finish() {
