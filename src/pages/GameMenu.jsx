@@ -28,6 +28,7 @@ export default function GameMenu({ setCurrentPage }) {
 
         {panel === 'menu' && (
           <div className="game-menu-actions">
+            <button onClick={() => setCurrentPage('gacha')}>GACHA & SKINS</button>
             <button className="game-menu-primary" onClick={() => setCurrentPage('game')}>START GAME</button>
             <button onClick={() => setPanel('instructions')}>HOW TO PLAY</button>
             <button onClick={() => setCurrentPage('home')}>BACK TO HOME</button>
