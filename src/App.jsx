@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Stack from './utils/Stack';
 import GameMenu from './pages/GameMenu';
+import GachaPage from './pages/GachaPage';
 
 const PAGE_BY_PATH = {
   '/': 'home',
@@ -62,6 +63,7 @@ function App() {
           <Route path="/login" element={<LoginPage setCurrentPage={setCurrentPage} />} />
           <Route path="/register" element={<RegisterPage setCurrentPage={setCurrentPage} />} />
           <Route path="/game-menu" element={<GameMenu setCurrentPage={setCurrentPage} />} />
+          <Route path="/gacha" element={<GachaPage setCurrentPage={setCurrentPage} />} />
           <Route
             path="/game"
             element={localStorage.getItem('token')
